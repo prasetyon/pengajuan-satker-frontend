@@ -1,103 +1,92 @@
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="min-h-screen bg-gradient-to-br from-cyan-400 to-cyan-500 p-4">
+      {/* Main Content */}
+      <div className="flex justify-center">
+        <div className="w-full max-w-6xl">
+          {/* Main Card */}
+          <Card className="bg-white/95 backdrop-blur-sm shadow-2xl py-0">
+            <CardContent className="p-0">
+              <div className="grid lg:grid-cols-2 min-h-[600px]">
+                {/* Left Side - Branding */}
+                <div className="p-8 pt-4 pb-4 lg:pt-4 lg:pb-4 lg:p-12 flex flex-col justify-center bg-white">
+                  {/* Logo and Title */}
+                  <div className="mb-8">
+                    <div className="flex items-center justify-center lg:justify-start mb-4">
+                      <Image src={"/asset/Kemenkeu.png"} alt="Home Logo" priority width={200} height={200} />
+                    </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+                    <h2 className="text-2xl lg:text-3xl font-bold text-teal-700 leading-tight text-center">
+                      Sistem Rekomendasi
+                      <br />
+                      Satker Kemenkeu
+                    </h2>
+                  </div>
+
+                  {/* Illustration */}
+                  <div className="flex justify-center mb-8">
+                    <Image src={"/asset/home-3.png"} alt="Home Icon" priority width={280} height={280} />
+                  </div>
+
+                  {/* Bottom Icons */}
+                  <div className="lg:flex justify-center gap-8 hidden">
+                    <Image src={"/asset/home-2.png"} alt="Home Icon 2" priority width={75} height={75} />
+                    <Image src={"/asset/home-1.png"} alt="Home Icon 3" priority width={75} height={75} />
+                  </div>
+                </div>
+
+                {/* Right Side - Login Form */}
+                <div className="p-8 lg:p-12 bg-gradient-to-br from-cyan-50 to-cyan-100 flex flex-col justify-center">
+                  <div className="max-w-sm mx-auto w-full">
+                    {/* Form Header */}
+                    <div className="text-center mb-8">
+                      <h3 className="text-2xl font-bold text-teal-700 mb-2">Silakan Login 👋 😊</h3>
+                    </div>
+
+                    {/* Login Form */}
+                    <form className="space-y-6">
+                      <div className="space-y-2">
+                        <Label htmlFor="username" className="text-teal-700 font-medium">
+                          Username
+                        </Label>
+                        <Input id="username" type="text" placeholder="Username here !!!" className="bg-white/80 border-cyan-200 focus:border-cyan-400 focus:ring-cyan-400 placeholder:text-cyan-300" />
+                      </div>
+
+                      <div className="space-y-2">
+                        <Label htmlFor="password" className="text-teal-700 font-medium">
+                          Password
+                        </Label>
+                        <Input id="password" type="password" placeholder="Password here !!!" className="bg-white/80 border-cyan-200 focus:border-cyan-400 focus:ring-cyan-400 placeholder:text-cyan-300" />
+                        <div className="text-right">
+                          <Link href="/forgot-password" className="text-red-500 hover:text-red-600 text-sm font-medium">
+                            Lupa password ?
+                          </Link>
+                        </div>
+                      </div>
+
+                      <Button type="submit" className="w-full bg-teal-700 hover:bg-teal-800 text-white font-medium py-3 rounded-lg text-lg">
+                        Login
+                      </Button>
+                    </form>
+
+                    {/* Register Link */}
+                    <div className="text-center mt-8">
+                      <span className="text-teal-700">Silakan login dengan akun yang telah tersedia!.</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </div>
     </div>
   );
 }
